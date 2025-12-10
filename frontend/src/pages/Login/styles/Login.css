@@ -1,0 +1,239 @@
+/* IMPROVED: src/pages/Login/Login.css */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #3b82f6;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --background: #ffffff;
+  --surface: #f8fafc;
+  --border: #e2e8f0;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --radius: 12px;
+  --radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #ffffff 0%, var(--surface) 100%);
+  color: var(--text-primary);
+  font-family: "Inter", sans-serif;
+}
+
+.auth-card {
+  flex: 1;
+  max-width: 440px;
+  margin: auto;
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid #f0f0f0;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.auth-header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.auth-header p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+
+.auth-field input {
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  background: #fafbfc;
+  transition: var(--transition);
+  font-family: "Inter", sans-serif;
+}
+
+.auth-field input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: var(--background);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.auth-field-extra {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+.auth-link {
+  font-size: 0.85rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.auth-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.auth-button {
+  margin-top: 12px;
+  border-radius: 8px;
+  border: none;
+  padding: 14px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+}
+
+.auth-button.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.auth-button.primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+}
+
+.auth-footer-text {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.auth-side-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+
+  /* Quitamos el gradient porque usaremos imagen */
+  background: none;
+}
+
+/* Imagen de fondo completa */
+.auth-side-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/public/bg-image.jpg");
+  background-size: cover;            /* cubrir todo */
+  background-position: center;       /* centrada */
+  background-repeat: no-repeat;      /* sin repetición */
+
+  z-index: 1;
+}
+
+/* Overlay oscuro (ajustable) */
+.auth-side-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);      /* 👈 oscurecimiento elegante */
+  z-index: 2;
+}
+
+/* Contenido al frente */
+.auth-side-content {
+  max-width: 400px;
+  position: relative;
+  z-index: 3;
+}
+
+.auth-side-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #e2e8f0;
+}
+
+
+.auth-side-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.95;
+  font-weight: 300;
+  color: #e2e8f0;
+}
+
+@media (max-width: 900px) {
+  .auth-page {
+    background: linear-gradient(180deg, var(--surface) 0%, var(--background) 100%);
+  }
+
+  .auth-side-panel {
+    display: none;
+  }
+
+  .auth-card {
+    max-width: 400px;
+    width: calc(100% - 32px);
+    margin: 40px auto;
+    border-radius: var(--radius);
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 32px 20px;
+    margin: 20px auto;
+  }
+
+  .auth-header h1 {
+    font-size: 1.8rem;
+  }
+}

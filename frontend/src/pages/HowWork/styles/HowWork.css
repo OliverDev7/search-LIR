@@ -1,0 +1,138 @@
+/* IMPROVED: src/pages/HowWork/HowWork.css */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary: #d32f2f;
+  --primary-dark: #8b1c1c;
+  --primary-light: #e57373;
+  --text-strong: #111;
+  --text-muted: #555;
+  --surface-glass: rgba(255, 255, 255, 0.95);
+  --border: #e0d4d4;
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --radius-lg: 20px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 80px 24px 100px;
+  background: linear-gradient(180deg, rgba(255, 240, 240, 0.3) 0%, #fff 100%);
+  font-family: "Inter", sans-serif;
+}
+
+.page-hero {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.page-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 20px;
+  letter-spacing: -0.5px;
+}
+
+.page-hero p {
+  font-size: 1.1rem;
+  margin: 0 auto;
+  color: var(--text-muted);
+  max-width: 700px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.page-content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 36px;
+  margin-top: 50px;
+}
+
+.page-card {
+  background: var(--surface-glass);
+  padding: 36px;
+  border-radius: var(--radius-lg);
+  border: 1px solid #f0f0f0;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: var(--transition);
+}
+
+.page-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(211, 47, 47, 0.15);
+}
+
+.page-card:hover::before {
+  transform: scaleY(1);
+}
+
+.page-card h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.45rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  letter-spacing: -0.3px;
+}
+
+.page-card p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 56px 20px 80px;
+  }
+
+  .page-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .page-content-grid {
+    gap: 28px;
+  }
+
+  .page-card {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 40px 16px 60px;
+  }
+
+  .page-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .page-card {
+    padding: 24px;
+  }
+}

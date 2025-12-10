@@ -1,0 +1,259 @@
+/* Rediseño minimalista con paleta de colores actualizada */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Espacio entre input y botón */
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 12px;
+  /* un poco de aire lateral */
+}
+
+/* Contenedor del borde arcoíris */
+.search-container {
+  position: relative;
+  flex: 1;
+  border-radius: 14px;
+  background: linear-gradient(90deg,
+      #3bb273,
+      #d9d9d9,
+      #2d9a63,
+      #c0c0c0,
+      #3bb273);
+  background-size: 300% 100%;
+  animation: rainbowBorder 3s linear infinite;
+  padding: 3px;
+  /* grosor del borde (más delgado) */
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.search-container:focus-within {
+  outline: none;
+  box-shadow: var(--shadow-md);
+  animation-play-state: running;
+}
+
+/* Form interno: fondo blanco donde va el input */
+.search-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 12px;
+  border: none;
+  padding: 6px 10px;
+  /* 🔹 mucho más compacto */
+  margin: 0;
+  box-shadow: none;
+}
+
+.search-bar:focus-within {
+  box-shadow: none;
+  transform: none;
+}
+
+.search-input {
+  width: 100%;
+  border: none;
+  background: #ffffff;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 400;
+  padding: 6px 8px;
+  /* 🔹 altura más baja */
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.search-input:invalid {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* Efecto sutil al enfocar */
+.search-input:focus {
+  background: #fafafa;
+  box-shadow: 0 0 0 2px rgba(235, 75, 110, 0.08);
+  outline: none !important;
+  border: none !important;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Botón independiente */
+.search-button-standalone {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  /* 🔹 más compacto */
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--primary-main);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(235, 75, 110, 0.25);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  height: 48px;
+  width: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button-standalone:hover:not(:disabled) {
+  background: #d42a52;
+  box-shadow: 0 4px 16px rgba(235, 75, 110, 0.35);
+  transform: translateY(-1px);
+}
+
+.search-button-standalone:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.search-button-standalone:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Animación del borde multicolor exterior */
+@keyframes rainbowBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Mensaje elegante de error */
+.search-error {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e4375d;
+  background: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: none;
+  animation: fadeInUp 0.25s ease-out;
+}
+
+/* Animación suave */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========= RESPONSIVE ========= */
+
+/* Tablets / pantallas medianas */
+@media (max-width: 1024px) {
+  .search-wrapper {
+    max-width: 640px;
+  }
+
+  .search-input {
+    font-size: 0.93rem;
+  }
+
+  .search-button-standalone {
+    padding: 8px 16px;
+    font-size: 0.88rem;
+  }
+}
+
+/* 🔹 Mantener fila hasta 640px (lo de tu captura) */
+@media (max-width: 768px) {
+  .search-wrapper {
+    max-width: 600px;
+  }
+}
+
+/* Móviles: ahora sí columna y full width */
+@media (max-width: 640px) {
+  .search-wrapper {
+    flex-direction: column;
+    gap: 8px;
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .search-container {
+    width: 100%;
+    border-radius: 12px;
+    padding: 2px;
+  }
+
+  .search-bar {
+    padding: 6px 8px;
+  }
+
+  .search-input {
+    font-size: 0.92rem;
+    text-align: left;
+    padding: 6px 6px;
+    border-bottom: none;
+    /* 👈 sin línea rara en móvil */
+    margin-bottom: 0;
+  }
+
+  .search-button-standalone {
+    width: 100%;
+    padding: 9px 18px;
+    font-size: 0.9rem;
+    margin-left: 0;
+  }
+
+  .search-error {
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 480px) {
+  .search-wrapper {
+    padding: 0 12px;
+  }
+
+  .search-container {
+    border-radius: 10px;
+    padding: 2px;
+  }
+
+  .search-bar {
+    padding: 6px;
+  }
+
+  .search-input {
+    font-size: 0.9rem;
+    padding: 6px 4px;
+  }
+
+  .search-button-standalone {
+    padding: 8px 14px;
+    font-size: 0.86rem;
+  }
+}

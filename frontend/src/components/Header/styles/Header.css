@@ -1,0 +1,635 @@
+/* src/components/Header.css */
+
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #f5f5f5;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(2, 18, 34, 0.06);
+}
+
+.header-inner {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 10px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Contenedor derecho: nav + login alineados a la derecha */
+.header-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Logo / brand */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: #eb4b6e;
+  color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.logo-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #021222;
+}
+
+.logo-text span {
+  color: #eb4b6e;
+}
+
+/* Nav links */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: flex-end;
+}
+
+.header-link {
+  font-size: 0.9rem;
+  color: rgba(2, 18, 34, 0.7);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.header-link:hover {
+  background: rgba(235, 75, 110, 0.08);
+  color: #021222;
+}
+
+.header-link-active {
+  background: rgba(235, 75, 110, 0.12);
+  color: #eb4b6e;
+}
+
+/* Login button */
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.header-login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  background: #eb4b6e;
+  color: #f5f5f5;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(235, 75, 110, 0.35);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+}
+
+.header-login-btn:hover {
+  background: #e4375d;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(235, 75, 110, 0.45);
+}
+
+/* --------------------------
+   Firmas guardadas (botón)
+   -------------------------- */
+
+.header-saved-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(2, 18, 34, 0.08);
+  background: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(2, 18, 34, 0.8);
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(2, 18, 34, 0.06);
+  transition: background 0.15s ease, box-shadow 0.15s ease,
+    transform 0.1s ease;
+}
+
+.header-saved-btn:hover {
+  background: #fff5f7;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(235, 75, 110, 0.15);
+}
+
+.saved-badge {
+  min-width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #eb4b6e;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+}
+
+.saved-badge-pulse {
+  animation: savedBadgePulse 0.6s ease-out;
+}
+
+@keyframes savedBadgePulse {
+  0% {
+    transform: scale(0.8);
+    box-shadow: 0 0 0 0 rgba(235, 75, 110, 0.5);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 12px rgba(235, 75, 110, 0);
+  }
+}
+
+
+/* Truncar áreas a una sola línea con “...” */
+.saved-firm-area-truncated {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  color: #555;
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+/* País debajo */
+.saved-firm-country {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+}
+
+
+/* --------------------------
+   Modal Firmas guardadas
+   -------------------------- */
+
+.saved-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 18, 34, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+  z-index: 70;
+}
+
+.saved-modal {
+  width: 100%;
+  max-width: 420px;
+  max-height: calc(100vh - 120px);
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 24px 50px rgba(2, 18, 34, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: savedModalIn 0.18s ease-out;
+}
+
+@keyframes savedModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.saved-modal-header {
+  padding: 14px 18px 10px;
+  border-bottom: 1px solid rgba(2, 18, 34, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.saved-modal-title-wrap h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #021222;
+}
+
+.saved-modal-counter {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 0.78rem;
+  color: rgba(2, 18, 34, 0.6);
+}
+
+.saved-modal-close {
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  color: rgba(2, 18, 34, 0.6);
+  border-radius: 999px;
+  padding: 4px 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.saved-modal-close:hover {
+  background: rgba(2, 18, 34, 0.06);
+  color: #021222;
+}
+
+.saved-modal-body {
+  padding: 10px 18px 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.saved-modal-empty {
+  font-size: 0.86rem;
+  color: rgba(2, 18, 34, 0.7);
+  line-height: 1.4;
+  padding: 8px 2px 14px;
+}
+
+.saved-modal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+/* Scroll suave dentro del modal */
+.saved-modal-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.saved-modal-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.saved-modal-list::-webkit-scrollbar-thumb {
+  background: rgba(2, 18, 34, 0.12);
+  border-radius: 999px;
+}
+
+/* Tarjeta de firma guardada */
+.saved-firm-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(2, 18, 34, 0.08);
+  background: #fafafa;
+  box-shadow: 0 4px 10px rgba(2, 18, 34, 0.04);
+  transition: box-shadow 0.15s ease, transform 0.1s ease,
+    border-color 0.15s ease, background 0.15s ease;
+}
+
+.saved-firm-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(2, 18, 34, 0.08);
+  border-color: rgba(235, 75, 110, 0.25);
+  background: #fff;
+}
+
+.saved-firm-card-new {
+  animation: savedFirmHighlight 0.8s ease-out;
+}
+
+@keyframes savedFirmHighlight {
+  0% {
+    background: #ffe6ee;
+    transform: translateY(-2px) scale(0.98);
+  }
+
+  100% {
+    background: #fafafa;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.saved-firm-main {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Nueva fila: nombre + ranking en la misma línea */
+.saved-firm-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.saved-firm-name {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #021222;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.saved-firm-area {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: rgba(2, 18, 34, 0.75);
+}
+
+.saved-firm-ranking {
+  font-size: 0.78rem;
+  color: rgba(2, 18, 34, 0.7);
+  white-space: nowrap;
+}
+
+.saved-firm-ranking span {
+  font-weight: 600;
+  color: #eb4b6e;
+}
+
+.saved-firm-remove {
+  border: none;
+  background: transparent;
+  font-size: 0.78rem;
+  color: rgba(2, 18, 34, 0.55);
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 999px;
+  align-self: center;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.saved-firm-remove:hover {
+  background: rgba(235, 75, 110, 0.08);
+  color: #eb4b6e;
+}
+
+/* Footer del modal */
+.saved-modal-footer {
+  padding: 10px 18px 12px;
+  border-top: 1px solid rgba(2, 18, 34, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.saved-modal-clear {
+  border-radius: 999px;
+  border: 1px solid rgba(2, 18, 34, 0.18);
+  background: #ffffff;
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: rgba(2, 18, 34, 0.75);
+  transition: background 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.saved-modal-clear:hover:not(:disabled) {
+  background: #f5f5f5;
+}
+
+.saved-modal-clear:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.saved-modal-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #eb4b6e;
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(235, 75, 110, 0.3);
+  transition: background 0.15s ease, box-shadow 0.15s ease,
+    transform 0.1s ease;
+}
+
+.saved-modal-primary:hover {
+  background: #e4375d;
+  box-shadow: 0 10px 24px rgba(235, 75, 110, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Estado deshabilitado del botón "Ir al formulario" */
+.saved-modal-primary-disabled {
+  background: #d3d3d3;
+  color: #ffffff;
+  box-shadow: none;
+  cursor: not-allowed;
+  border: none;
+}
+
+.saved-modal-primary-disabled:hover {
+  background: #d3d3d3;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Icono ⛔ al hacer hover cuando está deshabilitado */
+.saved-modal-primary-disabled:hover::after {
+  content: "";
+}
+
+/* ---------------------------------------------------
+   🆕 AGREGADO: MOBILE MENU (Hamburguesa + panel lateral)
+   --------------------------------------------------- */
+
+/* Botón hamburguesa */
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.9rem;
+  cursor: pointer;
+  margin-left: auto;
+  color: #021222;
+}
+
+/* Backdrop oscuro */
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 18, 34, 0.45);
+  z-index: 80;
+  display: flex;
+  justify-content: flex-end;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Panel lateral */
+.mobile-menu-panel {
+  width: 270px;
+  height: 100%;
+  background: #ffffff;
+  padding: 20px;
+  animation: slideIn 0.25s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Botón cerrar */
+.mobile-menu-close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  align-self: flex-end;
+  cursor: pointer;
+  margin-bottom: 10px;
+  color: #021222;
+}
+
+/* Links del menú */
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mobile-link {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #021222;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(2, 18, 34, 0.06);
+}
+
+/* Mostrar menú mobile */
+@media (max-width: 768px) {
+
+  .header-nav,
+  .header-actions {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .header-right {
+    gap: 10px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 8px 12px;
+    gap: 10px;
+  }
+
+  .header-right {
+    gap: 12px;
+  }
+
+  .logo-text {
+    font-size: 0.85rem;
+  }
+
+  .header-login-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .saved-modal-backdrop {
+    padding-top: 70px;
+  }
+
+  .saved-modal {
+    max-width: 95%;
+  }
+}
+
+
+/* 🔧 Acomodar orden en mobile: Mis Firmas a la izquierda y menú a la derecha */
+@media (max-width: 768px) {
+  .header-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  /* Mis Firmas debe ir antes del menú */
+  .header-saved-btn {
+    order: 1;
+  }
+
+  /* Menú hamburguesa siempre al extremo derecho */
+  .mobile-menu-button {
+    order: 2;
+    margin-left: 0;
+    /* evitar centrar */
+  }
+
+  /* Blur detrás del menú mobile */
+  .mobile-menu-backdrop {
+    backdrop-filter: blur(4px);
+  }
+
+}

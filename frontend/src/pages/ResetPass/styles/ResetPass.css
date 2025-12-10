@@ -1,0 +1,147 @@
+/* IMPROVED: src/pages/ResetPass/ResetPass.css */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #3b82f6;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --background: #ffffff;
+  --surface: #f8fafc;
+  --border: #e2e8f0;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --radius: 12px;
+  --radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reset-page {
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #ffffff 0%, var(--surface) 100%);
+  color: var(--text-primary);
+  font-family: "Inter", sans-serif;
+}
+
+.reset-page .auth-card {
+  flex: 1;
+  max-width: 440px;
+  margin: auto;
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid #f0f0f0;
+}
+
+.reset-page .auth-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.reset-page .auth-header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.reset-page .auth-header p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.reset-feedback {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #f0f9ff;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  font-size: 0.85rem;
+  color: var(--primary-dark);
+  font-weight: 500;
+}
+
+.reset-page .text-white{
+    color: #e2e8f0;
+}
+
+.reset-page .subtext-white{
+    color: #e2e8f0;
+}
+
+.reset-page .auth-side-panel.reset-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+
+  /* Quitamos el gradient porque usaremos imagen */
+  background: none;
+}
+
+/* Imagen que cubre todo el panel */
+.reset-page .auth-side-panel.reset-side::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/public/bg-image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: 1;
+}
+
+/* Overlay oscuro ajustable */
+.reset-page .auth-side-panel.reset-side::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* 👈 Ajusta este valor para más o menos oscuridad */
+  z-index: 2;
+}
+
+/* Contenido al frente */
+.reset-page .auth-side-panel.reset-side > * {
+  position: relative;
+  z-index: 3;
+}
+
+
+@media (max-width: 900px) {
+  .reset-page {
+    background: linear-gradient(180deg, var(--surface) 0%, var(--background) 100%);
+  }
+
+  .reset-page .auth-side-panel.reset-side {
+    display: none;
+  }
+
+  .reset-page .auth-card {
+    max-width: 400px;
+    width: calc(100% - 32px);
+    margin: 40px auto;
+    border-radius: var(--radius);
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reset-page .auth-card {
+    padding: 32px 20px;
+    margin: 20px auto;
+  }
+}

@@ -1,0 +1,117 @@
+/* IMPROVED: src/pages/Terms/Terms.css */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary: #d32f2f;
+  --primary-dark: #8b1c1c;
+  --text-main: #222;
+  --text-muted: #555;
+  --surface: #ffffff;
+  --border: #e0d4d4;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --radius: 14px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-wrapper {
+  max-width: 900px;
+  margin: auto;
+  padding: 80px 24px 100px;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+}
+
+.page-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 20px;
+  letter-spacing: -0.5px;
+}
+
+.page-hero p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.terms-content {
+  background: var(--surface);
+  padding: 40px;
+  border-radius: var(--radius);
+  border: 1px solid #f0f0f0;
+  box-shadow: var(--shadow-lg);
+  line-height: 1.8;
+}
+
+.terms-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 32px 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f3eaea;
+  letter-spacing: -0.3px;
+}
+
+.terms-content h2:first-child {
+  margin-top: 0;
+}
+
+.terms-content p {
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.terms-content ul {
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.terms-content li {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 56px 20px 80px;
+  }
+
+  .page-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .terms-content {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 40px 16px 60px;
+  }
+
+  .page-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .terms-content {
+    padding: 24px;
+  }
+}

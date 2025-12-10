@@ -1,0 +1,26 @@
+{
+  "name": "search-semantic",
+  "version": "1.0.0",
+  "main": "src/server.mjs",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/server.mjs",
+    "build-dictionary": "node src/scripts/buildDictionary.js",
+    "test": "node tests/searchEngine.test.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.22.1",
+    "fuse.js": "^7.0.0",
+    "googleapis": "^144.0.0",
+    "mysql2": "^3.15.3",
+    "nodemailer": "^7.0.11",
+    "openai": "^6.9.1",
+    "pdfkit": "^0.17.2"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}

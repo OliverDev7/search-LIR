@@ -1,0 +1,163 @@
+/* Chips de tags con color coral primario y diseño minimalista */
+.tagchip {
+  background: #ffffff;
+  border: 1.5px solid var(--border-light);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  transition: all var(--transition-base);
+  color: var(--text-primary);
+  max-width: 100%;
+  font-weight: 500;
+  position: relative;
+  box-shadow: var(--shadow-xs);
+}
+
+.tagchip:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-main);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+  color: var(--text-primary);
+}
+
+/* Estado activo con color coral */
+.tag-chip-active {
+  background: var(--primary-main);
+  color: #ffffff;
+  border-color: var(--primary-main);
+  box-shadow: 0 4px 12px rgba(235, 75, 110, 0.25);
+}
+
+.tag-chip-active:hover {
+  background: #d42a52;
+  border-color: #d42a52;
+  box-shadow: 0 6px 16px rgba(235, 75, 110, 0.35);
+  transform: translateY(-2px);
+}
+
+.tag-chip-label {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex: 1;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: inherit;
+}
+
+/* Contador */
+.tagchip-count {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 4px 8px;
+  min-width: 26px;
+  text-align: center;
+  font-weight: 700;
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.tagchip:hover .tagchip-count {
+  background: var(--bg-main);
+  border-color: var(--primary-main);
+  color: var(--primary-main);
+}
+
+.tag-chip-active .tagchip-count {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Animación entrada */
+.tagchip {
+  animation: fadeInScale 0.3s ease-out both;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Retrasos escalonados */
+.tagchip:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.tagchip:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.tagchip:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.tagchip:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.tagchip:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+/* Focus visible */
+.tagchip:focus-visible {
+  outline: 2px solid var(--primary-main);
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tagchip {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    border-radius: 7px;
+  }
+
+  .tagchip-count {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+    min-width: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tagchip {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+  }
+
+  .tagchip-count {
+    font-size: 0.7rem;
+    padding: 2px 5px;
+    min-width: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tagchip {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+  }
+
+  .tagchip-count {
+    font-size: 0.68rem;
+    min-width: 18px;
+  }
+}

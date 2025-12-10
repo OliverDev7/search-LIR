@@ -1,0 +1,269 @@
+/* src/components/FirmDetails/FirmDetails.css */
+
+:root {
+    --fd-primary: #d32f2f;
+    /* rojo principal */
+    --fd-primary-soft: #fde4e4;
+    --fd-bg: #f5f5f5;
+    --fd-text: #021222;
+    --fd-muted: #6b7280;
+    --fd-border: #e0e0e0;
+    --fd-radius: 16px;
+    --fd-radius-sm: 10px;
+    --fd-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Contenedor principal */
+.firm-details {
+    background: #ffffff;
+    border-radius: var(--fd-radius);
+    box-shadow: var(--fd-shadow);
+    padding: 24px 24px 28px;
+    margin: 32px auto 40px;
+    max-width: 1100px;
+    color: var(--fd-text);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+/* Header */
+.firm-details-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.firm-details-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.firm-details-name {
+    margin: 0;
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.firm-details-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.firm-details-chip {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.firm-details-chip-outline {
+    border: 1px solid var(--fd-border);
+    background: #ffffff;
+    color: var(--fd-text);
+}
+
+.firm-details-chip-soft {
+    background: rgba(2, 18, 34, 0.04);
+    color: var(--fd-text);
+}
+
+/* Lado derecho */
+.firm-details-right {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.firm-details-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.firm-details-rank {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* Colores de ranking */
+.rank-excellent {
+    background: #2e7d32;
+    color: #ffffff;
+}
+
+.rank-good {
+    background: #0288d1;
+    color: #ffffff;
+}
+
+.rank-medium {
+    background: #f9a825;
+    color: #ffffff;
+}
+
+.rank-low {
+    background: #f57c00;
+    color: #ffffff;
+}
+
+.rank-unknown {
+    background: #9e9e9e;
+    color: #ffffff;
+}
+
+.firm-details-relevance {
+    font-size: 0.78rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--fd-primary-soft);
+    color: var(--fd-primary);
+    font-weight: 500;
+}
+
+.firm-details-close-btn {
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--fd-muted);
+    border-radius: 999px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.firm-details-close-btn:hover {
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--fd-primary);
+    transform: translateY(-1px);
+}
+
+/* Bloque de tags principales */
+.firm-details-tags-block {
+    margin-bottom: 20px;
+}
+
+.firm-details-section-title {
+    font-size: 1rem;
+    margin: 0 0 8px;
+    font-weight: 600;
+}
+
+.firm-details-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.firm-details-tag {
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    background: rgba(2, 18, 34, 0.04);
+    color: var(--fd-text);
+}
+
+/* Grid principal de contenido */
+.firm-details-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+    gap: 20px;
+    margin-top: 8px;
+}
+
+.firm-details-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Cards internas */
+.firm-details-card {
+    background: #ffffff;
+    border-radius: var(--fd-radius-sm);
+    padding: 16px 16px 14px;
+    border: 1px solid var(--fd-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.firm-details-card-title {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--fd-text);
+}
+
+.firm-details-card-text {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--fd-muted);
+}
+
+/* Footer */
+.firm-details-footer {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--fd-border);
+}
+
+.firm-details-footer p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--fd-muted);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .firm-details {
+        padding: 20px 16px 24px;
+        margin: 24px 0 32px;
+    }
+
+    .firm-details-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .firm-details-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .firm-details-name {
+        font-size: 1.6rem;
+    }
+
+    .firm-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .firm-details-name {
+        font-size: 1.4rem;
+    }
+
+    .firm-details-card {
+        padding: 14px 12px;
+    }
+
+    .firm-details-tags {
+        gap: 6px;
+    }
+}

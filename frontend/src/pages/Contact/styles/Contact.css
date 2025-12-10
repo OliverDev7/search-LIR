@@ -1,0 +1,217 @@
+/* IMPROVED: src/pages/Contact/Contact.css */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #3b82f6;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --background: #ffffff;
+  --surface: #f8fafc;
+  --border: #e2e8f0;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --radius: 12px;
+  --radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+  color: var(--text-primary);
+  font-family: "Inter", sans-serif;
+}
+
+.page-hero {
+  margin-bottom: 56px;
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-family: "Playfair Display", serif;
+  margin: 0 0 20px;
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--text-primary), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.page-hero p {
+  margin: 0 auto;
+  font-size: 1.1rem;
+  max-width: 600px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.contact-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-card,
+.contact-side {
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid #f0f0f0;
+}
+
+.contact-card h2,
+.contact-side h2 {
+  margin: 0 0 28px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+
+.form-row input,
+.form-row textarea {
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  font-family: "Inter", sans-serif;
+  background: #fafbfc;
+  transition: var(--transition);
+  resize: vertical;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+  background: var(--background);
+}
+
+.contact-submit {
+  margin-top: 12px;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 32px;
+  background: var(--primary);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: var(--transition);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+}
+
+.contact-submit:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+}
+
+.contact-side p {
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.contact-side ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.contact-side li {
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: var(--text-secondary);
+}
+
+.contact-side li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 1024px) {
+  .page-wrapper {
+    padding: 48px 20px 64px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 40px 16px 56px;
+  }
+
+  .page-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .page-hero p {
+    font-size: 1rem;
+  }
+
+  .contact-card,
+  .contact-side {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 32px 16px 48px;
+  }
+
+  .page-hero {
+    margin-bottom: 40px;
+  }
+
+  .page-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-card,
+  .contact-side {
+    padding: 24px;
+  }
+}
